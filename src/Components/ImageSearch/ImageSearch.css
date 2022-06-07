@@ -1,0 +1,33 @@
+.rover-select {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.title{
+  display: flex;
+  flex-direction: row;
+}
+
+.rover {
+  color: white;
+  font-weight: 500;
+  margin: 5px;
+  padding: 5px;
+}
+
+.rover:hover {
+  color: yellow;
+  cursor: pointer;
+}
+
+.rover-button {
+  width: 10%;
+  border-radius: 20px;
+  margin: 25px;
+  padding: 5px;
+}

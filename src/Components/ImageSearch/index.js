@@ -23,18 +23,19 @@ export default function ImageSearch(props) {
     return (
         <div className='rover-select'>
             <h4>Pick a Rover</h4>
-            <input type='date'/>
             <section className='title'>
                 {rovers.map((rover, idx) => {
                     return (
                         <div className='rover' key={idx} onClick={()=>handleRover(rover)}>{rover}</div>
-                    )
-                })}
+                        )
+                    })}
             </section>
             {roverSelected && <section className='cameras'>
                 <div id='cameras'>
                     <h4>Pick a Camera</h4>
                 </div>
+                    <h4>Pick a Day</h4>
+                    <input id='date' type='date'/>
             </section>}
             <button className='rover-button'>Get Images</button>
         </div>

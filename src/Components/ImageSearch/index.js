@@ -4,30 +4,26 @@ import './ImageSearch.css'
 import Rover from './rover'
 
 //extracting the names of the rovers from the parent Rover object to use in the ImageSearch component.
-
+//input typeofdate
 const roverList = []
 for (const keys in Rover) {
     let roverNames = Rover[keys]
     roverList.push(roverNames.roverName)
 }
 
-
 export default function ImageSearch(props) {
-
     const [rovers, setRover] = useState(roverList)
+    const [roverSelected, setRoverSelected] =useState(false)
 
     const handleRover = (e) => {
         setRover(rovers.filter(rover => e === rover))
-
-        document.getElementById('cameras')
-            .addEventListener('click', () => {
-                document.getElementById('cameras').hidden = false;
-            })
+        setRoverSelected(true)
     }
 
     return (
         <div className='rover-select'>
             <h4>Pick a Rover</h4>
+            <input type='date'/>
             <section className='title'>
                 {rovers.map((rover, idx) => {
                     return (
@@ -35,11 +31,11 @@ export default function ImageSearch(props) {
                     )
                 })}
             </section>
-            <section className='cameras'>
-                <div id='cameras' hidden>
+            {roverSelected && <section className='cameras'>
+                <div id='cameras'>
                     <h4>Pick a Camera</h4>
                 </div>
-            </section>
+            </section>}
             <button className='rover-button'>Get Images</button>
         </div>
     );

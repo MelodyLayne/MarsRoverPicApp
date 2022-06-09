@@ -1,6 +1,6 @@
-.rover-select {
+.title{
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
@@ -8,10 +8,16 @@
   font-weight: bold;
 }
 
-.title{
+.rover-select {
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: larger;
+  font-weight: bold;
 }
+
 
 .rover {
   color: white;
@@ -30,4 +36,34 @@
   border-radius: 20px;
   margin: 25px;
   padding: 5px;
+}
+
+.camera {
+  color: white;
+  font-weight: 500;
+  margin: 5px;
+  padding: 5px;
+}
+
+.camera-select {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.camera-button {
+  width: 10%;
+  border-radius: 20px;
+  margin: 25px;
+  padding: 5px;
+}
+
+input {
+  width: 20%;
+  line-height: 200%;
+  border-radius: 10px;
 }

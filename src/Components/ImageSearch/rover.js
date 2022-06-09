@@ -1,6 +1,5 @@
 const Rover = {
-  rover0: {
-    roverName: 'Preseverance',
+  Preseverance: {
     cameras: {
       EDL_RUCAM: 'Rover Up- Look Camera',
       EDL_RDCAM: 'Rover Down- Look Camera',
@@ -20,8 +19,7 @@ const Rover = {
     },
     Landing_Date: '2021-02-18',
   },
-  rover1: {
-    roverName: 'Opportunity',
+  Opportunity: {
     cameras: {
       FHAZ: 'Front Hazard Avoidance Camera',
       RHAZ: 'Rear Hazard Avoidance Camera',
@@ -32,8 +30,7 @@ const Rover = {
     Landing_Date: '',
     EndDate: '',
   },
-  rover2: {
-    roverName: 'Curiousity',
+  Curiousity: {
     cameras: {
       FHAZ: 'Front Hazard Avoidance Camera',
       RHAZ: 'Rear Hazard Avoidance Camera',
@@ -46,8 +43,7 @@ const Rover = {
     Landing_Date: '',
     EndDate: '',
   },
-  rover3: {
-    roverName: 'Spirit',
+  Spirit: {
     cameras: {
       FHAZ: 'Front Hazard Avoidance Camera',
       RHAZ: 'Rear Hazard Avoidance Camera',

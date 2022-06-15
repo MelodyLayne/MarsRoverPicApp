@@ -47,7 +47,7 @@ export default function Mars(props) {
                 images.forEach(n => {
                     imagesArray.push(res.data.photos[n].img_src)
                 })
-                console.log(res.data)
+                console.log(imagesArray)
                 return setMarsPics(imagesArray);
             })
             .catch((err) => console.error(err));
@@ -67,7 +67,7 @@ export default function Mars(props) {
                 )}
                 <div key={marsPics.id}>
                     <Rover
-                        imagesArray={props.img_src}
+                        imagesArray={marsPics}
                     />
                 </div>
             </div>

@@ -1,4 +1,4 @@
-const Rover = {
+const Rovers = {
   Preseverance: {
     cameras: {
       EDL_RUCAM: 'Rover Up- Look Camera',
@@ -56,4 +56,4 @@ const Rover = {
   },
 }
 
-export default Rover
+export default Rovers

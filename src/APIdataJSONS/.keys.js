@@ -1,4 +1,4 @@
-export const API_KEY = 'bd0FD0AbSf4p0bQrvyDYPoleF38ynj8KejufG8V5';
+export const API_KEY = `bd0FD0AbSf4p0bQrvyDYPoleF38ynj8KejufG8V5`;
 /* This is the original link to make api calls to the mars rover api to.
 https://api.nasa.gov/planetary/apod?api_key=bd0FD0AbSf4p0bQrvyDYPoleF38ynj8KejufG8V5
 

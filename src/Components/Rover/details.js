@@ -1,15 +1,10 @@
 import React from 'react';
 
-
-
-
-const Details = (props) => {
+export default function Details(props){
+    const {rover, camera, earthDate} = props
     return (
             <p>
-                This image was captured by the {props.rover} rover from the {props.camera} on{' '}
-                {props.earthDate}
+                This image was captured by the {rover} rover from the {camera} on {earthDate}
             </p>
     );
 };
-
-export default Details;

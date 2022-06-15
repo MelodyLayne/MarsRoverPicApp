@@ -5,6 +5,7 @@ import Rover from '../Rover';
 import Details from '../Rover/details';
 import Header from './header';
 import ImageSearch from '../ImageSearch';
+import '../Rover/Rover.css'
 import './Mars.css'
 
 export default function Mars(props) {
@@ -26,7 +27,6 @@ export default function Mars(props) {
                 randomImages.forEach(n => {
                     imagesArray.push(res.data.photos[n].img_src)
                 })
-                console.log(imagesArray)
                 return setMarsPics(imagesArray);
             })
             .catch((err) => console.error(err));
@@ -47,7 +47,6 @@ export default function Mars(props) {
                 images.forEach(n => {
                     imagesArray.push(res.data.photos[n].img_src)
                 })
-                console.log(imagesArray)
                 return setMarsPics(imagesArray);
             })
             .catch((err) => console.error(err));
@@ -65,12 +64,14 @@ export default function Mars(props) {
                         earthDate={props.date}
                     />
                 )}
+            </div>
+            <section className='images'>
                 <div key={marsPics.id}>
                     <Rover
                         imagesArray={marsPics}
                     />
                 </div>
-            </div>
+            </section>
             <div>
                 <button onClick={onClick}>Get New Images</button>
             </div>

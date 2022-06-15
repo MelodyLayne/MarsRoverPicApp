@@ -4,3 +4,9 @@ button {
   margin: 25px;
   padding: 5px;
 }
+
+.header {
+  width: 50%;
+  text-align: center;
+  margin-left: 25%;
+}

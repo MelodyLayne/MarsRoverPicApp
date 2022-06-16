@@ -19,14 +19,16 @@ export default function Mars(props) {
             )
             .then((res) => {
                 const num = res.data.photos.length;
-                const randomImages = []
-                for (let i = 0; i < 25; i++) {
-                    randomImages.push(Math.floor(Math.random() * num))
+                const images = []
+                for (let i = 0; images.length < 25; i++) {
+                    let photo = Math.floor(Math.random() * num)
+                    if (images.indexOf(photo) === -1)
+                        images.push(photo)
                 }
                 const imagesArray = []
-                randomImages.forEach(n => {
-                    imagesArray.push(res.data.photos[n].img_src)
-                })
+                 images.forEach(n => {
+                     imagesArray.push(res.data.photos[n].img_src)
+                    })
                 return setMarsPics(imagesArray);
             })
             .catch((err) => console.error(err));
@@ -41,8 +43,10 @@ export default function Mars(props) {
                 const num = res.data.photos.length;
                 const images = []
                 const imagesArray = []
-                for (let i = 0; i < 25; i++) {
-                    images.push(Math.floor(Math.random() * num))
+                for (let i = 0; images.length < 25; i++) {
+                    let photo = Math.floor(Math.random() * num)
+                    if (images.indexOf(photo) === -1)
+                    images.push(photo)
                 }
                 images.forEach(n => {
                     imagesArray.push(res.data.photos[n].img_src)

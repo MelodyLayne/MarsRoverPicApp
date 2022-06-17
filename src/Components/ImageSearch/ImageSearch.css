@@ -7,6 +7,10 @@
   font-size: larger;
   font-weight: bold;
 }
+ .title h4:hover{
+  color: yellow;
+  cursor: pointer;
+}
 
 .rover-select {
   display: flex;

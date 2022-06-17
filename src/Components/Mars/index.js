@@ -5,7 +5,6 @@ import Rover from '../Rover';
 import Details from '../Rover/details';
 import Header from './header';
 import ImageSearch from '../ImageSearch';
-import '../Rover/Rover.css'
 import './Mars.css'
 
 export default function Mars(props) {
@@ -69,13 +68,11 @@ export default function Mars(props) {
                     />
                 )}
             </div>
-            <section className='images'>
-                <div key={marsPics.id}>
+                <div className='images' key={marsPics.id}>
                     <Rover
                         imagesArray={marsPics}
                     />
                 </div>
-            </section>
             <div>
                 <button onClick={onClick}>Get New Images</button>
             </div>

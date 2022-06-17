@@ -2,27 +2,27 @@ import React from 'react';
 import { useState } from 'react'
 import './ImageSearch.css'
 import Rovers from './rover'
-import Rover from '../Rover'
 
 
 const date = new Date()
 const [year, month, day ] = [date.getUTCFullYear(),date.getMonth()+1, date.getUTCDate()-3 ]
+const endDay = [year, month, day]
 
 export default function ImageSearch(props) {
 
     const [rovers, setRover] = useState(Object.keys(Rovers))
     const [roverMessage, setRoverMessage] =useState('Pick a Rover')
-    const [dates, setStartDate] = useState([year, month, day])
-    const [endDate, setEndDate] = useState([year, month, day])
+    const [dates, setStartDate] = useState(Object.values(Rovers).landing_date)
+    const [endDate, setEndDate] = useState(endDay.join('-'))
     const [roverSelected, setRoverSelected] = useState(false)
 
     const handleRover = (e) => {
         setRover(rovers.filter(rover => e === rover))
         setRoverMessage('Reset Rovers')
         setRoverSelected(true)
-        setStartDate(props.landing_date)
-        setEndDate(endDate.join('-'))
-        console.log(e, dates.join('-'))
+        setStartDate(dates)
+        // setEndDate(endDate.join('-'))
+        console.log(e, dates, endDate)
     };
 
     const resetRovers = (e) => {
@@ -48,8 +48,9 @@ export default function ImageSearch(props) {
                     <div className='date-select'>
                                        <h4>Pick a Day</h4>
                     <input id='date' type='date'
-                    // min={} max={}
-                    date={props.date} />
+                     min={dates}
+                    max={endDate}
+                  />
                     </div>
                 <button className='rover-button' onClick={props.onClick}>Get Images</button>
             </section>}

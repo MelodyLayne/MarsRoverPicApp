@@ -14,13 +14,13 @@ Initially I only accessed the Mars Curiousity Rover and hard coded a specific da
 
 Since then I have gone back and added the following funcitonality.
 
-1. Allowing the user to choose from the three available rovers in the Nasa API.
+1. Allowing the user to choose from all four available rovers in the Nasa API.
 2. Giving the user a choice of cameras from each rover.
 3. Having the user set the date they want to search for images.
 
 ### Challenges and Solutions
 
-The primary challenges in this project were -
+The primary challenges in this project so far are -
 1. Not all rovers are equipped with the same cameras
 2. They do not all have the same service dates.
 

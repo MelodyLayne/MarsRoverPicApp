@@ -38,4 +38,7 @@ img {
   display: flex;
   flex-direction: row;
   flex: row nowrap;
+  border-radius: 10px;
+  background-color: midnightBlue;
+  box-shadow: 17px 17px 34px rgb(38, 38, 38), inset -8px -8px 16px, inset 0px 14px 28px  ;
 }

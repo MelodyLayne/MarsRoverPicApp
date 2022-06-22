@@ -1,5 +1,5 @@
 const Rovers = {
-  Preseverance: {
+  Perseverance: {
     cameras: {
       EDL_RUCAM: 'Rover Up- Look Camera',
       EDL_RDCAM: 'Rover Down- Look Camera',

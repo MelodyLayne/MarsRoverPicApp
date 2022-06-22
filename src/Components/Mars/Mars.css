@@ -6,14 +6,12 @@ button {
 }
 
 .header {
-  width: 50%;
+  width: 97.5%;
   text-align: center;
-  margin-left: 25%;
 }
 
 .images {
   margin: 0 10px;
-  height: 33%;
   width: 97.5%;
   display: flex;
   flex-direction: row;
@@ -23,8 +21,6 @@ button {
 }
 
 .image{
-  height: 90%;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -32,8 +28,7 @@ button {
 }
 
 img {
-  height: 25%;
-  width: 25%;
+  max-height: 500px;
   margin: 10px 10px;
   display: flex;
   flex-direction: row;

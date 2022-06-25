@@ -48,6 +48,7 @@ export default function Mars(props) {
                 images.forEach(n => {
                     imagesArray.push(res.data.photos[n].img_src)
                     })
+                console.log(imagesArray)
                 return setMarsPics(imagesArray);
             })
             .catch((err) => console.error(err));
@@ -83,10 +84,14 @@ export default function Mars(props) {
 
     return (
         <>
-            <div className='hubble'>
+            <div>
                 <Header />
+            </div>
+            <div className='hubble'>
                 <ImageSearch
                     getRoverPics={getRoverPics}
+                    rover={props.rovers}
+                    date={props.date}
                 />
             </div>
             <div className='images'>

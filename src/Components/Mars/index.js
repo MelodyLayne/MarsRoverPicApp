@@ -12,6 +12,7 @@ let roverList = ['Perseverance', 'Opportunity', 'Curiousity', 'Spirit']
 
 
 export default function Mars(props) {
+
     const [marsPics, setMarsPics] = useState([]);
     const [rovers, setRover] = useState(roverList)
     const [roverMessage, setRoverMessage] = useState('Pick a Rover')
@@ -20,13 +21,15 @@ export default function Mars(props) {
     const [roverSelected, setRoverSelected] = useState(false)
     const [date, setDate] = useState(today)
 
+
     useEffect(() => {
         axios
             .get(
-                `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=1&api_key=${API_KEY}`
+                `https://api.nasa.gov/mars-photos/api/v1/manifests/perseverance/?api_key=${API_KEY}`
             )
             .then((res) => {
-                const num = res.data.photos.length;
+                console.log(res.data.photo_manifest.photos.length)
+                const num = res.data.photo_manifest.photos.length;
                 const images = []
                 const imagesArray = []
                 for (let i = 0; images.length < num; i++) {
@@ -34,7 +37,7 @@ export default function Mars(props) {
                     images.push(photo)
                 }
                 images.forEach(n => {
-                    imagesArray.push(res.data.photos[n].img_src)
+                    imagesArray.push(res.data.photo_manifest.photos[n].img_src)
                 })
                 return setMarsPics(imagesArray);
             })

@@ -6,7 +6,7 @@ import Header from './header';
 import './Mars.css'
 
 let today = new Date()
-let roverList = ['Perseverance', 'Opportunity', 'Curiousity', 'Spirit']
+let roverList = ['Perseverance', 'Opportunity', 'Curiosity', 'Spirit']
 
 
 export default function Mars(props) {

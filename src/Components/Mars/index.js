@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_KEY } from '../../APIdataJSONS/.keys';
 import Rover from '../Rover';
-import Header from './header';
+import Header from '../Header/idex';
 import './Mars.css'
 
 let today = new Date()
@@ -25,7 +25,7 @@ export default function Mars(props) {
                 `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=${API_KEY}`
             )
             .then((res) => {
-                // console.log(res.data.latest_photos)
+                console.log(res.data.latest_photos)
                 const num = res.data.latest_photos.length;
                 const images = []
                 const imagesArray = []
@@ -137,7 +137,6 @@ export default function Mars(props) {
                     <Rover
                         imagesArray={marsPics}
                         date={date}
-                        // rover={rover}
                     />
                 </div>
         </>

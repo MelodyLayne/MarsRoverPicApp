@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_KEY } from '../../APIdataJSONS/.keys';
 import Rover from '../Rover';
-// import Details from '../Rover/details';
 import Header from './header';
-// import ImageSearch from '../ImageSearch';
 import './Mars.css'
 
 let today = new Date()
@@ -16,51 +14,61 @@ export default function Mars(props) {
     const [marsPics, setMarsPics] = useState([]);
     const [rovers, setRover] = useState(roverList)
     const [roverMessage, setRoverMessage] = useState('Pick a Rover')
-    const [dates, setStartDate] = useState(today)
+    const [startDate, setStartDate] = useState(today)
     const [endDate, setEndDate] = useState(today)
     const [roverSelected, setRoverSelected] = useState(false)
     const [date, setDate] = useState(today)
 
-
     useEffect(() => {
         axios
             .get(
-                `https://api.nasa.gov/mars-photos/api/v1/manifests/perseverance/?api_key=${API_KEY}`
+                `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=${API_KEY}`
             )
             .then((res) => {
-                console.log(res.data.photo_manifest.photos.length)
-                const num = res.data.photo_manifest.photos.length;
+                const num = res.data.latest_photos.length;
                 const images = []
                 const imagesArray = []
+                let rover
                 for (let i = 0; images.length < num; i++) {
                     let photo = i
                     images.push(photo)
                 }
                 images.forEach(n => {
-                    imagesArray.push(res.data.photo_manifest.photos[n].img_src)
+                    const image = res.data.latest_photos[n].img_src
+                    const camera = res.data.latest_photos[n].camera.full_name
+                    rover = res.data.latest_photos[n].rover.name
+                    // const date = res.data.latest_photos[n].
+                    imagesArray.push({image, camera})
                 })
-                return setMarsPics(imagesArray);
+                imagesArray.push(rover)
+                // console.log(imagesArray)
+                setMarsPics(imagesArray);
             })
-            .catch((err) => console.error(err));
-    }, []);
+            .catch((err) => console.error(err))
+        }, []);
 
-    const getRoverPics = (e) => {
-        e.preventDefault()
-        axios
+        const getRoverPics = (e) => {
+            e.preventDefault()
+            axios
             .get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rovers}/photos?earth_date=${date}&api_key=${API_KEY}`)
             .then((res) => {
                 const num = res.data.photos.length;
                 const images = []
                 const imagesArray = []
+                let rover
                 console.log(res.data.photos)
                 for (let i = 0; i < num; i++) {
                     let photo = i
                     images.push(photo)
                 }
                 images.forEach(n => {
-                    imagesArray.push(res.data.photos[n].img_src)
-                    })
-                console.log(imagesArray)
+                    const image = res.data.photos[n].img_src
+                    const camera = res.data.photos[n].camera.full_name
+                    rover = res.data.photos[n].rover.name
+                    imagesArray.push({image, camera})
+                })
+                // console.log(marsPics)
+                imagesArray.push(rover)
                 return setMarsPics(imagesArray);
             })
             .catch((err) => console.error(err));
@@ -81,33 +89,6 @@ export default function Mars(props) {
             .catch((err) => console.error(err))
 
     };
-    const getNewDay = (e) => {
-        let nextDay = 1
-        axios
-            .get(
-            `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=${nextDay}&api_key=${API_KEY}`
-            )
-            .then((res) => {
-                const num = res.data.photos.length;
-                const images = []
-                const imagesArray = []
-                console.log(res.data.photos)
-                for (let i = 0; i < num; i++) {
-                    let photo = i
-                    images.push(photo)
-                }
-                images.forEach(n => {
-                    imagesArray.push(res.data.photos[n].img_src)
-                })
-               setMarsPics(imagesArray);
-            })
-            .then(
-                nextDay++
-        )
-            .catch((err) => console.error(err));
-        console.log(nextDay)
-    };
-
 
     const resetRovers = (e) => {
         e.target = setRover(roverList)
@@ -118,9 +99,7 @@ export default function Mars(props) {
     const datePicker = (e) => {
         let dateChoice = e.target.value
         setDate(dateChoice)
-        console.log(dateChoice)
     }
-
 
     return (
         <>
@@ -145,7 +124,7 @@ export default function Mars(props) {
                             <input
                                 id='date'
                                 type='date'
-                                min={dates}
+                                min={startDate}
                                 max={endDate}
                                 value={date}
                                 onChange={datePicker}
@@ -160,9 +139,6 @@ export default function Mars(props) {
                         imagesArray={marsPics}
                     />
                 </div>
-            <div>
-                <button onClick={getNewDay}>Get New Images</button>
-            </div>
         </>
     );
 }

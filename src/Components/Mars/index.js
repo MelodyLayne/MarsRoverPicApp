@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_KEY } from '../../APIdataJSONS/.keys';
 import Rover from '../Rover';
-import Header from '../Header/idex';
+import Header from '../Header';
+import Stars from '../Stars';
 import './Mars.css'
 
 let today = new Date()
 let roverList = ['Perseverance', 'Opportunity', 'Curiosity', 'Spirit']
 
-
-export default function Mars(props) {
+export default function Mars() {
 
     const [marsPics, setMarsPics] = useState([]);
     const [rovers, setRover] = useState(roverList)
@@ -104,7 +104,9 @@ export default function Mars(props) {
             <div>
                 <Header />
             </div>
-            <div className='dot'></div>
+            <div>
+                <Stars />
+            </div>
             <div className='hubble'>
                 <div>
                     <section className='title'>

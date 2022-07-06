@@ -1,0 +1,69 @@
+
+.orange-dot {
+  margin-left: 150px;
+  width: 1.5px;
+  height: 1.5px;
+  font-size: xx-small;
+  background-color: rgba(175, 72, 9, 0);
+  animation: orangeTwinkle infinite 5s;
+}
+.yellow-dot {
+  margin-left: 155px;
+  width: 1.5px;
+  height: 1.5px;
+  font-size: xx-small;
+  background-color: rgba(128, 109, 7, 0);
+  animation: yellowTwinkle infinite 5s;
+}
+.red-dot {
+  margin-left: 160px;
+  width: 1.5px;
+  height: 1.5px;
+  font-size: xx-small;
+  background-color: rgba(126, 4, 4, 0);
+  animation: redTwinkle infinite 5s;
+}
+.white-dot {
+  margin-left: 165px;
+  width: 1.5px;
+  height: 1.5px;
+  font-size: xx-small;
+  background-color: rgba(255, 255, 255, 0);
+  animation: twinkle infinite 5s;
+}
+
+@keyframes orangeTwinkle {
+  from {
+    background-color: rgba(175, 72, 9, 0);
+  }
+  to {
+    background-color: rgba(175, 72, 9, 75);
+  }
+}
+
+@keyframes yellowTwinkle {
+  from {
+    background-color: rgba(128, 109, 7, 0);
+  }
+  to {
+    background-color: rgba(128, 109, 7, 75);
+  }
+}
+
+@keyframes redTwinkle {
+  from {
+    background-color: rgba(126, 4, 4, 0);
+  }
+  to {
+    background-color: rgba(126, 4, 4, 75);
+  }
+}
+
+@keyframes twinkle {
+  from {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 75);
+  }
+}

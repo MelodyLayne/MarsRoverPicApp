@@ -106,6 +106,7 @@ export default function Mars(props) {
             <div>
                 <Header />
             </div>
+            <div className='dot'></div>
             <div className='hubble'>
                 <div>
                     <section className='title'>

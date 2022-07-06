@@ -90,3 +90,21 @@ input {
   line-height: 200%;
   border-radius: 10px;
 }
+
+.dot {
+  margin-left: 150px;
+  width: 1.5px;
+  height: 1.5px;
+  font-size: xx-small;
+  background-color: rgba(255, 255, 255, 0);
+  animation: twinkle infinite 5s;
+}
+
+@keyframes twinkle {
+  from {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  to {
+    background-color: rgba(255, 255, 255, 50);
+  }
+}
